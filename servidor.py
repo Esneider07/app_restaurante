@@ -184,9 +184,16 @@ def pedidos():
             for i in venta_hoy_list:
                 venta_hoy += i.venta
         return render_template('pedidos.html', usuariodata = usuario, fecha = obtener_fecha(), ventas_hoy = venta_hoy, pedidos = pedidos)
-    #except:
-    #    flash('No se registran pedidos')
-    #    return redirect('/')
+
+@app.route('/reiniciar_borrar', methods=['POST'])
+def borrar_trabajador():
+    if request.method == 'POST':
+        nombre = request.form['trabajador']
+        db.session.query(Usuario).filter_by(nombre = nombre).delete()
+        db.session.commit()
+    
+    flash(f"{nombre} eliminad@ satisfactoriamente")
+    return redirect('/home')
 
 @app.route('/agregar_carrito', methods=['POST'])
 def agregar_carrito():
@@ -288,6 +295,8 @@ def listo():
             actualizar.venta = actualizar.venta + pedido.costo
             db.session.add(nueva_venta)
             db.session.query(Pedidos).filter_by(id=pedido.id).delete()
+            usuario = db.session.query(Usuario).get(session['id_user'])
+            usuario.ventas += pedido.costo
             db.session.commit()
             return redirect('/pedidos')
         elif 'cancelar' in request.form:
@@ -419,10 +428,11 @@ def agregar_producto():
             db.session.commit()
         except:
             flash('Error a la hora del registro.')
-        return redirect('/signup')     
+        return redirect('/signup')
+# ESTOY TRABAJANDO AQUÍ        
 
 
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+    app.run(debug = True)

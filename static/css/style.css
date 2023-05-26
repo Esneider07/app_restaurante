@@ -47,6 +47,10 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+body{
+    height: 100vh;
+}
+
 .filtro{
     cursor: pointer;
 }
@@ -74,12 +78,14 @@
     margin-top: 125px;
     margin-left: 25px;
     position: absolute;
+    display: none;
 }
 
 .pass{
     height: 30px;
     margin-left: 335px;
     position: absolute;
+    display: none;
 }
 
 .entrada-login{
@@ -93,9 +99,7 @@
     padding: 5px 3px;
     color: #35308a;
     text-align: center;
-    display: block;
-    margin-bottom: 2em;
-    margin-left: 23%;
+    margin-top: 20px;
     font-size: 18px;
 }
 
@@ -110,8 +114,8 @@ button{
     padding: 5px 30px;
     border: none;
     border-radius: 20px;
-    margin-left: 38%;
     color: #fff;
+    margin-top: 20px;
 }
 
 
@@ -123,7 +127,7 @@ button{
     border: none;
     border-radius: 20px;
     color: #fff;
-    margin-left: 34%;
+    margin-top: 20px;
 }
 
 .terminar_turno{
@@ -152,6 +156,11 @@ button{
     top: 20%;
     margin-left: 32.5%;
     box-shadow: 10px 10px rgb(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .gasto li{
@@ -170,12 +179,15 @@ button{
     margin-top: .5em;
     box-shadow: 10px 10px rgb(0, 0, 0, 0.3);
     height: 68vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo{
     height: 120px;
     background: transparent;
-    margin-left: 33.5%;
 }
 
 .navegacion{
@@ -370,13 +382,19 @@ input[type="number"]{
     grid-template-rows: 35% 65%;
 }
 
+.producto-agregar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .agregar{
     height: max-content;
     width: max-content;
     padding: 10px 40px;
     border: 3px solid #35308a;
     border-radius: 20px;
-    margin-left: 5em;
     color: #35308a;
     font-weight: 600;
 }
@@ -593,6 +611,10 @@ input[type='radio']:checked{
 .global{
     margin-top: -10px;
     text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .cliente{
@@ -602,10 +624,8 @@ input[type='radio']:checked{
     width: max-content;
     padding: 5px 3px;
     text-align: center;
-    display: block;
-    margin-top: 20px;
-    margin-bottom: 15px;
-    margin-left: 23%;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border-radius: 30px;
     font-size: 18px;
     text-transform: uppercase;
@@ -790,6 +810,7 @@ input[type='radio']:checked{
     border: none;
     border-radius: 30px;
     box-shadow: 5px 5px rgb(0, 0, 0, 0.4);
+    margin-top: 20px;
 }
 
 .registrar-gasto:hover{
