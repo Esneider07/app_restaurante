@@ -419,11 +419,10 @@ def agregar_producto():
             db.session.commit()
         except:
             flash('Error a la hora del registro.')
-        return redirect('/signup')
-# ESTOY TRABAJANDO AQUÍ        
+        return redirect('/signup')     
 
 
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug = True)
+    app.run()
